@@ -29,7 +29,6 @@ function Counter({ init, end, autostart }) {
   }, [])
 
   function restart() {
-    console.log('restart')
     setStart(false); // Hide the Start button
     setCount(init); // Reset "count" to the initial value
   }

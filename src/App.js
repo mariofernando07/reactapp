@@ -1,19 +1,30 @@
 // import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter';
-import React from 'react';
+import InputFieldCounter from './InputFieldCounter';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [total, setTotal] = useState(0)
   return (
     <>
       {
-        [...Array(3).keys()].map((i) => { 
-        var val = i < 2 ? '1' : '0'; // value of the "autostart" attribute
-        return <React.Fragment key={i}>
-          <Counter autostart={val} init="5" end={10 + i} />
-        </React.Fragment> 
-})
+        [...Array(3).keys()].map((i) => {
+          var val = i < 2 ? '1' : '0'; // value of the "autostart" attribute
+          return <React.Fragment key={i}>
+              <Counter autostart={val} init="5" end={10 + i} />
+            </React.Fragment>
+        })
       }
+      <hr/>
+      <InputFieldCounter focus setTotal={setTotal}/>
+      <hr/>
+      <InputFieldCounter setTotal={setTotal}/>
+      <hr/>
+      <InputFieldCounter setTotal={setTotal}/>
+      <hr/>
+      <b>Total: {total}</b>
     </>
     // <div className="App">
     //   <header className="App-header">
@@ -31,7 +42,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    
+
   );
 }
 
