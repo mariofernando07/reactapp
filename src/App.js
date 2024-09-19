@@ -7,11 +7,12 @@ function App() {
   return (
     <>
       {
-        [...Array(10).keys()].map((i) => 
-        <React.Fragment key={i}>
-          <Counter init="5" end={10 + i} />
+        [...Array(3).keys()].map((i) => { 
+        var val = i < 2 ? '1' : '0'; // value of the "autostart" attribute
+        return <React.Fragment key={i}>
+          <Counter autostart={val} init="5" end={10 + i} />
         </React.Fragment> 
-        )
+})
       }
     </>
     // <div className="App">
