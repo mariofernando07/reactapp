@@ -2,26 +2,29 @@ import { useReducer } from "react";
 
 function CounterAdvance() {
 
-  const [value, dispatch] = useReducer((value, action) => {
-    if (action === 'INCR') value += 1;
-    if (action === 'DECR') value -= 1;
-    return value;
-  }, 0)
+  const valueIncr = 10;
+  const valueDecr = 10;
+
+  const [state, dispatch] = useReducer((state, action) => {
+    if (action.type === 'INCR') state.value += action.value;
+    if (action.type === 'DECR') state.value -= action.value;
+    return {...state};
+  }, {value: 0})
 
   function incrValue() {
-    dispatch('INCR');
+    dispatch({type:'INCR', value: valueIncr});
   }
 
   function decrValue() {
-    dispatch('DECR');
+    dispatch({type:'DECR', value: valueDecr});
   }
 
   return <>
-    <button onClick={incrValue}>value + 1</button>
+    <button onClick={incrValue}>value + {valueIncr}</button>
     &nbsp;&nbsp;
-    <button onClick={decrValue}>value - 1</button>
+    <button onClick={decrValue}>value - {valueDecr}</button>
     &nbsp;
-    =&gt;value={value}
+    =&gt;value={state.value}
   </>
 
 }
