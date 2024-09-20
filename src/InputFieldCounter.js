@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./InputFieldCounter.css";
+import { TotalContext } from "./App";
 
-function InputFieldCounter({focus, setTotal}) {
+function InputFieldCounter({focus}) {
   const [value, setValue] = useState('');
+  const [total, setTotal] = useContext(TotalContext)
   const refCounter = useRef();
 
   useEffect(() => {

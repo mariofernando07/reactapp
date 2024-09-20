@@ -2,8 +2,10 @@
 import './App.css';
 import Counter from './Counter';
 import InputFieldCounter from './InputFieldCounter';
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 
+
+const TotalContext = createContext();
 function App() {
 
   const [total, setTotal] = useState(0)
@@ -18,13 +20,15 @@ function App() {
         })
       }
       <hr/>
-      <InputFieldCounter focus setTotal={setTotal}/>
-      <hr/>
-      <InputFieldCounter setTotal={setTotal}/>
-      <hr/>
-      <InputFieldCounter setTotal={setTotal}/>
-      <hr/>
-      <b>Total: {total}</b>
+      <TotalContext.Provider value={[total, setTotal]}>
+        <InputFieldCounter focus/>
+        <hr/>
+        <InputFieldCounter/>
+        <hr/>
+        <InputFieldCounter/>
+        <hr/>
+        <b>Total: {total}</b>
+      </TotalContext.Provider>
     </>
     // <div className="App">
     //   <header className="App-header">
@@ -46,4 +50,5 @@ function App() {
   );
 }
 
-export default App;
+// export default App;
+export {App, TotalContext };
