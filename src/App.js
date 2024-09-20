@@ -13,6 +13,11 @@ const TotalContext = createContext();
 function App() {
 
   const [total, setTotal] = useState(0)
+  const [name, setName] = useState('');
+
+  function change(event) {
+    setName(event.target.value)
+  }
   return (
     <>
       {
@@ -40,7 +45,8 @@ function App() {
       <hr/>
       <CounterCustomHook />
       <hr/>
-      <Countries/>
+      Country: <input type='text' onChange={change}/> <br/><br/>
+      <Countries name={name}/>
     </>
     // <div className="App">
     //   <header className="App-header">

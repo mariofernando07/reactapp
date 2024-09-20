@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import useCountries from "./useCountries";
 
-function Countries() {
-  const countries = useCountries();
+function Countries({name}) {
+  const countries = useCountries(name);
 
   return (
     <>
