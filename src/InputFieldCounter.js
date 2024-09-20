@@ -1,11 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./InputFieldCounter.css";
 import { TotalContext } from "./App";
+import usePreviousState from "./usePreviousState";
 
 function InputFieldCounter({focus}) {
   const [value, setValue] = useState('');
   const [total, setTotal] = useContext(TotalContext)
   const refCounter = useRef();
+  const prevValue = usePreviousState(value);
 
   useEffect(() => {
     // Give focus to the field if the "focus" attribute is indicated
@@ -36,6 +38,8 @@ function InputFieldCounter({focus}) {
       <br />
       <br />
       Input value: {value}
+      <br/>
+      Previous value: {prevValue}
     </>
   );
 }
