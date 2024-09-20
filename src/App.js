@@ -2,6 +2,7 @@
 import './App.css';
 import Counter from './Counter';
 import InputFieldCounter from './InputFieldCounter';
+import SimpleCounter from './SimpleCounter';
 import React, { useState, createContext } from 'react';
 
 
@@ -29,6 +30,9 @@ function App() {
         <hr/>
         <b>Total: {total}</b>
       </TotalContext.Provider>
+      <hr/>
+      <SimpleCounter name="SimpleCounter#1"/>
+      <SimpleCounter name="SimpleCounter#2"/>
     </>
     // <div className="App">
     //   <header className="App-header">
