@@ -4,6 +4,7 @@ import Counter from './Counter';
 import InputFieldCounter from './InputFieldCounter';
 import SimpleCounter from './SimpleCounter';
 import CounterAdvance from './CounterAdvance';
+import CounterCustomHook from './CounterCustomHook';
 import React, { useState, createContext } from 'react';
 
 
@@ -35,6 +36,8 @@ function App() {
       <SimpleCounter name="SimpleCounter#1"/>
       <hr/>
       <CounterAdvance/>
+      <hr/>
+      <CounterCustomHook />
     </>
     // <div className="App">
     //   <header className="App-header">
