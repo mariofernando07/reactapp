@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import useForceUpdate from "./useForceUpdate";
 function SimpleCounter({ name }) {
     const [value, setValue] = useState(0);
     const valueRef = useRef(0);
+
+    const [ forceUpdate ] = useForceUpdate();
 
     function incrValue() {
         setValue(value + 1);
@@ -9,6 +12,7 @@ function SimpleCounter({ name }) {
 
     function incrRef() {
         valueRef.current += 1;
+        forceUpdate(); // allow show the changes of the valueRef
     }
 
     // useEffect#1: used without conditions
