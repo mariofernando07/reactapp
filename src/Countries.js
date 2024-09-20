@@ -1,10 +1,24 @@
-import useFetch from "./useFetch";
+import { Fragment } from "react";
+import useCountries from "./useCountries";
 
 function Countries() {
-  const [data, error] = useFetch("https://restcountries.com/v3.1/all");
+  const countries = useCountries();
 
   return (
-    <>{!error && !data ? <>Waiting</> : error ? <>{error}</> : <>{data}</>}</>
+    <>
+      {!countries ? (
+        <>Waiting</>
+      ) : (
+        <>
+          {countries.map((name, index) => (
+            <Fragment key={index}>
+              {name}
+              <br />
+            </Fragment>
+          ))}
+        </>
+      )}
+    </>
   );
 }
 
