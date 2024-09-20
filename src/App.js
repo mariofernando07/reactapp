@@ -5,6 +5,7 @@ import InputFieldCounter from './InputFieldCounter';
 import SimpleCounter from './SimpleCounter';
 import CounterAdvance from './CounterAdvance';
 import CounterCustomHook from './CounterCustomHook';
+import Countries from './Countries';
 import React, { useState, createContext } from 'react';
 
 
@@ -38,6 +39,8 @@ function App() {
       <CounterAdvance/>
       <hr/>
       <CounterCustomHook />
+      <hr/>
+      <Countries/>
     </>
     // <div className="App">
     //   <header className="App-header">
